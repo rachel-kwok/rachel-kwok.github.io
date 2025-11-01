@@ -42,6 +42,11 @@
             text-decoration: none;
             color: #333;
             font-weight: 500;
+            transition: text-shadow 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .nav-icons {
@@ -55,7 +60,7 @@
             padding: 4rem 2rem;
             display: grid;
             grid-template-columns: 300px 1fr;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .profile-section {
@@ -63,8 +68,8 @@
         }
 
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 275px;
+            height: 275px;
             border-radius: 50%;
             margin-bottom: 1.5rem;
             position: relative;
@@ -96,19 +101,21 @@
             font-weight: bold;
             margin-bottom: 0.5rem;
             color: #333;
-        }
-
-        .profile-chinese {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #333;
+            /* background: linear-gradient(90deg, #F5A9D0, #515FDB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; 
+            background-clip: text; */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .profile-title {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: #333;
+            background: linear-gradient(90deg, #4A90E2, #932BD4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .profile-org {
@@ -142,6 +149,9 @@
             font-size: 1.1rem;
             line-height: 1.8;
             margin-bottom: 2rem;
+            border: 2px solid #333;
+            border-radius: 0px;
+            padding: 2rem
         }
 
         .download-btn {
@@ -191,28 +201,6 @@
             font-size: 1.5rem;
         }
 
-        .education-item {
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .education-item:before {
-            content: "🎓";
-            position: absolute;
-            left: 0;
-        }
-
-        .education-degree {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .education-school {
-            opacity: 0.9;
-        }
-
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -234,6 +222,7 @@
         <div class="nav-brand">R. KWOK</div>
         <ul class="nav-links">
             <li><a href="index.html">Bio</a></li> 
+            <li><a href="#">Notes (coming soon)</a></li> 
             <!-- <li><a href="technology.html" class="category-link">Blogs</a></li> --->
         </ul>
         <div class="nav-icons">
@@ -245,13 +234,13 @@
     <div class="main-content">
         <div class="profile-section">
             <div class="profile-image">
-                <img src=IMG_3367.png alt="Profile Picture">
+                <img src="display.jpg" alt="Profile Picture">
                 <div class="profile-badge">☕</div>
             </div>
             <div class="profile-name">Rachel Kwok</div>
             <div class="profile-title">Data Scientist</div>
             <div class="social-links">
-                <a href="#">@</a>
+                <a href="mailto:rachelk@canva.com">✉</a>
                 <a href="https://www.linkedin.com/in/rachel-kwok-9b1396202/">in</a>
             </div>
         </div>
@@ -259,7 +248,7 @@
         <div class="content-section">
             <h1>About Me</h1>
             <p class="bio">
-                Hey there! (˶˃ ᵕ ˂˶)/ I'm <b>Rachel</b>, a full-time Data Scientist and a part-time theoretical computer science enthusiast.
+                Hey there! (˶˃ ᵕ ˂˶)/ I'm <b>Rachel</b>, a full-time Data Scientist and part-time theoretical computer science enthusiast.
                 Theoretical CS is my first academic interest and I enjoy dedicating my time to learning about all it has to offer. 
                 This website is a collection of my notes and I hope that whoever stumbles upon this finds this field just as exciting as I do.
                 You can also find my honours thesis on computational geometry below.
