@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Learning about CoNP &amp; PH</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="latexnotes.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Learning about CoNP &amp; PH</h1>
+</header>
+<div class="flushleft">
+<p><span><strong></strong></span></p>
+</div>
+<h1 id="conp">CoNP</h1>
+<p>Suppose <span class="math inline">\(B\)</span> is a polynomial-time
+certifier. Decision problems can be defined by their YES-instances. The
+decision problems in the following complexity classes can be defined
+as:<br />
+</p>
+<ul>
+<li><p>A problem in <strong>P</strong>: <span class="math inline">\(\{x
+: B(x, \epsilon)\}\)</span>, where <span
+class="math inline">\(\epsilon\)</span> denotes the empty string. In
+other words, YES-instances of problems in <strong>P</strong> do not need
+a certificate and we can decide membership in polynomial time with <span
+class="math inline">\(x\)</span> alone.</p></li>
+<li><p>A problem in <strong>NP</strong>: <span class="math inline">\(\{x
+: \exists y \text{ with }  |y| \leq |x|^{O(1)}, B(x,y)\}\)</span>. In
+other words, YES-instances have some polynomial-length certificate <span
+class="math inline">\(y\)</span>.</p></li>
+<li><p>A problem in <strong>coNP</strong>: <span
+class="math inline">\(\{x : \forall y \text{ with }  |y| \leq
+|x|^{O(1)}, B(x,y)\}\)</span>. In other words, YES-instances require all
+possible polynomial-length certificates to satisfy <span
+class="math inline">\(B\)</span>.</p></li>
+</ul>
+<p><br />
+<br />
+Intuitively, problems in <strong>NP</strong> ask whether there
+<em>exists</em> a string satisfying certain properties, whereas problems
+in <strong>coNP</strong> ask whether <em>all</em> strings satisfy
+certain properties. This comes from <span class="math inline">\(\neg
+(\exists x: p(x)) \equiv \forall x: \neg p(x)\)</span>.<br />
+<br />
+Let us consider the following example to further build intuition of the
+relationship between <strong>NP</strong> and <strong>coNP</strong>. SAT
+is a well-known problem in NP, which asks if a logical sentence <span
+class="math inline">\(S\)</span> has a truth assignment which satisfies
+it. Consider <span class="math inline">\(\neg S\)</span>. Verifying that
+<span class="math inline">\(S\)</span> is a tautology is equivalent to
+checking that there is no valuation satisfying <span
+class="math inline">\(\neg S\)</span>. Consequently, TAUTOLOGY is the
+complement of SAT but with a negated formula. Hence, TAUTOLOGY <span
+class="math inline">\(\in\)</span> coNP.</p>
+<h1 id="polynomial-hierarchy">Polynomial Hierarchy</h1>
+<p>We now introduce the following notation: <span
+class="math inline">\(\sum_{1}^{P} = \textbf{NP}\)</span> and <span
+class="math inline">\(\Pi_{1}^{P} = \textbf{coNP}\)</span>.<br />
+The polynomial hierarchy (PH) contains <span
+class="math inline">\(\sum_{k}^{P}\)</span> and <span
+class="math inline">\(\Pi_{k}^{P}\)</span> for <span
+class="math inline">\(k \geq 1\)</span> and is defined recursively as:
+<span class="math display">\[\begin{align*}
+    \sum_{k+1}^{P} := \exists^P\Pi_{k}^{P}
+    \\ \Pi_{k+1}^{P} := \forall^P\sum_{k}^{P}
+\end{align*}\]</span> The classes of the polynomial hierarchy can be
+interpreted in the context of games, where languages in <span
+class="math inline">\(\Sigma_i\)</span> ask if there exists a winning
+strategy for <span class="math inline">\(\frac{i}{2}\)</span> rounds for
+player 1. Conversely, languages in <span
+class="math inline">\(\Pi_i\)</span> can be interpreted as asking about
+winning strategies for the second player.<br />
+<br />
+If a PH-complete language exists, then there exists an <span
+class="math inline">\(i\)</span> such that the polynomial hierarchy
+collapses to the <span class="math inline">\(i\)</span>th level.</p>
+</body>
+</html>

@@ -1,0 +1,82 @@
+@import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
+
+body {
+    font-family: 'Computer Modern Sans', sans-serif;
+    background: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Title styling (matches your \maketitle) */
+h1.title {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #000;
+}
+
+/* Author styling */
+p.author {
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Section headers (matches \sectionfont) */
+h1, h2 {
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+/* Subsection headers */
+h3 {
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Links (matches your hyperref settings) */
+a {
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+}
+
+a:hover {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Boxed content (for your framed definitions) */
+.boxed {
+    border: 2px solid #333;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    background: white;
+}
+
+/* Math display */
+.math.display {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+/* Figure styling */
+figure {
+    margin: 2rem 0;
+}
+
+figcaption {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachel's Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #ffe4e9 0%, #ffd9e0 50%, #ffcdd6 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-brand {
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: text-shadow 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .blog-category {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: linear-gradient(90deg, #4A90E2, #932BD4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .blog-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #222;
+            line-height: 1.4;
+        }
+
+        .blog-card h2 a {
+            text-decoration: none;
+            color: #222;
+            transition: color 0.3s;
+        }
+
+        .blog-card h2 a:hover {
+            background: linear-gradient(90deg, #4A90E2, #932BD4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 1rem;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: white;
+            border: 1px dashed #ddd;
+            font-size: 1.2rem;
+            color: #666;
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-brand">R. KWOK</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Bio</a></li> 
+            <li><a href="blog.html">Notes</a></li> 
+        </ul>
+        <div class="nav-icons">
+            <span>🔍</span>
+            <span>🌙</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Notes & Explorations</h1>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Example blog post 1 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Polynomial_time_hierarchy.svg/500px-Polynomial_time_hierarchy.svg.png" alt="Voronoi diagram visualization">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">Work in Progress</span>
+                        <span class="blog-category">Computational Complexity</span>
+                    </div>
+                    <h2><a href="pandoc/PH.html">Introduction to the Polynomial Hierarchy</a></h2>
+                    <p class="blog-excerpt">
+                        Beyond the well-known classes of P and NP, I wanted to explore more complexity classes. This marks my first step in that direction.
+                    </p>
+                    <a href="pandoc/PH.html" class="read-more">Read more →</a>
+                </div>
+            </article>
+<!-- 
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&q=80" alt="Abstract complexity visualization">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">October 2024</span>
+                        <span class="blog-category">Complexity Theory</span>
+                    </div>
+                    <h2><a href="#">Understanding P vs NP Intuitively</a></h2>
+                    <p class="blog-excerpt">
+                        Breaking down one of computer science's most famous unsolved problems. 
+                        What does it really mean for a problem to be in P or NP, and why does it matter?
+                    </p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Data visualization">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-date">September 2024</span>
+                        <span class="blog-category">Randomised Algorithms</span>
+                    </div>
+                    <h2><a href="#">The Beauty of Randomness in Computation</a></h2>
+                    <p class="blog-excerpt">
+                        How introducing randomness can sometimes make algorithms faster and simpler. 
+                        A look at QuickSort, Miller-Rabin, and other probabilistic gems.
+                    </p>
+                    <a href="#" class="read-more">Read more →</a>
+                </div>
+            </article>
+
+            <div class="coming-soon">
+                <p>✨ More notes coming soon ✨</p>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>
